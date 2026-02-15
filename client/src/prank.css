@@ -1,0 +1,101 @@
+/* ---- Prank page full screen fix ---- */
+.prank-container {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #1f2933, #111827);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ---- Card ---- */
+.prank-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 320px;
+  position: relative;
+}
+
+.prank-card h1 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #111827;
+}
+
+/* ---- Button area ---- */
+.button-area {
+  position: relative;
+  height: 220px;
+}
+
+/* ---- YES button (runner 😈) ---- */
+.yes-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 12px 26px;
+  font-size: 16px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: top 0.03s linear, left 0.03s linear;
+  will-change: top, left;
+}
+
+/* ---- NO button (safe 😇) ---- */
+.no-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 26px;
+  font-size: 16px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.no-btn:hover {
+  background-color: #059669;
+}
+
+/* ---- Hidden Admin Link ---- */
+.hidden-admin-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #10b981;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+  z-index: 10000;
+}
+
+.hidden-admin-link:hover {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}

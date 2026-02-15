@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .card h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yes-btn {
+            background-color: #4CAF50;
+            color: white;
+            position: absolute; /* Allow absolute positioning for movement */
+        }
+
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            .card h1 {
+                font-size: 20px;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Do you want the password?</h1>
+        <div class="buttons">
+            <button id="yes-btn">YES</button>
+            <button id="no-btn">NO</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+
+        // Function to move the YES button to a random position
+        function moveYesButton() {
+            const card = document.querySelector('.card');
+            const cardRect = card.getBoundingClientRect();
+            const btnRect = yesBtn.getBoundingClientRect();
+
+            // Calculate random position within the viewport, avoiding edges
+            const maxX = window.innerWidth - btnRect.width - 20;
+            const maxY = window.innerHeight - btnRect.height - 20;
+            const minX = 20;
+            const minY = 20;
+
+            const randomX = Math.random() * (maxX - minX) + minX;
+            const randomY = Math.random() * (maxY - minY) + minY;
+
+            yesBtn.style.left = randomX + 'px';
+            yesBtn.style.top = randomY + 'px';
+        }
+
+        // Move YES button on mouseover (when cursor comes near)
+        yesBtn.addEventListener('mouseover', moveYesButton);
+
+        // Prevent clicking YES button by moving it on mousedown
+        yesBtn.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            moveYesButton();
+        });
+
+        // NO button click redirects to index.html
+        noBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
