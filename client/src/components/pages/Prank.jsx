@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../Prank.css";
+import "../../prank.css";
 
 const PrankContact = () => {
   const [yesPosition, setYesPosition] = useState({
