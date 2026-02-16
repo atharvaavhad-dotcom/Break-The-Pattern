@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../../AdminPortal.css";
 
 const AdminPortal = () => {
   const [username, setUsername] = useState("");
@@ -85,24 +86,6 @@ const AdminPortal = () => {
         </div>
       )}
 
-      {/* Custom Styles */}
-      <style jsx>{`
-        .neonText {
-          text-shadow:
-            0 0 5px #00ff00,
-            0 0 10px #00ff00,
-            0 0 20px #00ff00;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 1s ease forwards;
-        }
-      `}</style>
     </div>
   );
 };
